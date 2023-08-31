@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>We need access to your photo library for aircraft images</string>
+	<string>We need access to photo library for aircraft images</string>
 	<key>NSCameraUsageDescription</key>
-	<string>Enable camera access for capturing images of aircrafts</string>
+	<string>We need the camera for capturing aircrafts images</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

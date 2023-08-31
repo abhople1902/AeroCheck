@@ -9,6 +9,7 @@ import UIKit
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
+    @IBOutlet weak var faultClass: UILabel!
     @IBOutlet weak var firstView: UIImageView!
     
     let imagePicker = UIImagePickerController()
@@ -48,13 +49,20 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
                 // Convert Response String to Dictionary
                 do {
-                    _ = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
+                    if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
+                       let predictions = json["predictions"] as? [[String: Any]],
+                       let firstPrediction = predictions.first,
+                       let classValue = firstPrediction["class"] as? String {
+                        
+                        print("Class: \(classValue)")
+                        DispatchQueue.main.async {
+                            self.faultClass.text = classValue
+                        }
+                    }
                 } catch {
                     print(error.localizedDescription)
                 }
-
-                // Print String Response
-                print(String(data: data, encoding: .utf8)!)
+                // print(String(data: data, encoding: .utf8)!)
             }).resume()
         }
         imagePicker.dismiss(animated: true, completion: nil)
