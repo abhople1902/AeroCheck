@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="oxS-Yo-zzg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="oxS-Yo-zzg">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -25,18 +26,33 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fUj-eT-9jF">
+                                <rect key="frame" x="111" y="737" width="172" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="41" id="kzi-3P-3YX"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Store fault"/>
+                                <connections>
+                                    <action selector="buttonAPIPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9Er-yt-MGr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fUj-eT-9jF" secondAttribute="trailing" constant="110" id="3sq-FF-hKG"/>
+                            <constraint firstItem="fUj-eT-9jF" firstAttribute="top" secondItem="fXd-dQ-BwP" secondAttribute="bottom" constant="70" id="4co-cI-E7E"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fXd-dQ-BwP" secondAttribute="trailing" constant="87" id="7VL-MH-1xT"/>
                             <constraint firstItem="GhL-wg-Seb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Stb-3i-Ic0"/>
                             <constraint firstItem="fXd-dQ-BwP" firstAttribute="top" secondItem="GhL-wg-Seb" secondAttribute="bottom" constant="48" id="XM8-xF-jLH"/>
                             <constraint firstItem="GhL-wg-Seb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="db4-bX-gwl"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="fXd-dQ-BwP" secondAttribute="bottom" constant="151" id="fDV-gJ-x10"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="GhL-wg-Seb" secondAttribute="bottom" constant="220" id="pnO-gV-Sn3"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="fUj-eT-9jF" secondAttribute="bottom" constant="40" id="q6F-pd-HSb"/>
                             <constraint firstItem="fXd-dQ-BwP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="77" id="s5a-zT-2IB"/>
                             <constraint firstItem="GhL-wg-Seb" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="unZ-5Q-Vos"/>
+                            <constraint firstItem="fUj-eT-9jF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="111" id="vAj-Ka-bI4"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="AeroCheck" id="6i8-Fb-OsB">
@@ -61,7 +77,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="oxS-Yo-zzg" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="f6Y-uh-dPh">
-                        <rect key="frame" x="0.0" y="59" width="393" height="96"/>
+                        <rect key="frame" x="0.0" y="59" width="393" height="97"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="largeTitleTextAttributes">
                             <fontDescription key="fontDescription" type="italicSystem" pointSize="33"/>
@@ -85,7 +101,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray2Color">
-            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
