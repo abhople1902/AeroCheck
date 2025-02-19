@@ -43,13 +43,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             
             URLSession.shared.dataTask(with: request, completionHandler: { data, response, error in
 
-                // Parse Response to String
+                
                 guard let data = data else {
                     print(String(describing: error))
                     return
                 }
 
-                // Convert Response String to Dictionary
+                
                 do {
                     if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
                        let predictions = json["predictions"] as? [[String: Any]],
@@ -77,45 +77,45 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         present(imagePicker, animated: true, completion: nil)
     }
     
-    @IBAction func buttonAPIPressed(_ sender: UIButton) {
-        let backendURLString = "http://192.168.1.7:3000/repairs/newfault"
-            guard let backendURL = URL(string: backendURLString) else {
-                print("Invalid backend URL")
-                return
-            }
-
-            // Prepare data to send in the request body
-            let labelText = faultClass.text ?? ""
-            let requestData: [String: Any] = ["name": labelText]
-            print(requestData)
-            
-            do {
-                // Serialize the data into JSON
-                let jsonData = try JSONSerialization.data(withJSONObject: requestData, options: [])
-
-                // Create a URLRequest with the backend URL
-                var request = URLRequest(url: backendURL)
-                request.httpMethod = "POST"
-                request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-                request.httpBody = jsonData
-
-                // Send the request
-                URLSession.shared.dataTask(with: request) { data, response, error in
-                    if let error = error {
-                        print("Error: \(error)")
-                        return
-                    }
-
-                    // Handle the response
-                    if let httpResponse = response as? HTTPURLResponse {
-                        print("Status code: \(httpResponse.statusCode)")
-                        // Process the response data if needed
-                    }
-                }.resume()
-            } catch {
-                print("Error serializing JSON: \(error)")
-            }
-    }
+//    @IBAction func buttonAPIPressed(_ sender: UIButton) {
+//        let backendURLString = "http://192.168.29.241:3000/repairs/newfault"
+//            guard let backendURL = URL(string: backendURLString) else {
+//                print("Invalid backend URL")
+//                return
+//            }
+//
+//            // Prepare data to send in the request body
+//            let labelText = faultClass.text ?? ""
+//            let requestData: [String: Any] = ["name": labelText]
+//            print(requestData)
+//            
+//            do {
+//                // Serialize the data into JSON
+//                let jsonData = try JSONSerialization.data(withJSONObject: requestData, options: [])
+//
+//                // Create a URLRequest with the backend URL
+//                var request = URLRequest(url: backendURL)
+//                request.httpMethod = "POST"
+//                request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+//                request.httpBody = jsonData
+//
+//                // Send the request
+//                URLSession.shared.dataTask(with: request) { data, response, error in
+//                    if let error = error {
+//                        print("Error: \(error)")
+//                        return
+//                    }
+//
+//                    // Handle the response
+//                    if let httpResponse = response as? HTTPURLResponse {
+//                        print("Status code: \(httpResponse.statusCode)")
+//                        // Process the response data if needed
+//                    }
+//                }.resume()
+//            } catch {
+//                print("Error serializing JSON: \(error)")
+//            }
+//    }
     
     
 }
